@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:latest
+    user: root
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    # volumes:
+#       - ./workspace:/var/jenkins_home

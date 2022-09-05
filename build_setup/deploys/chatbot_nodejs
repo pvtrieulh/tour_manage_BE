@@ -1,0 +1,8 @@
+cd /apps/st_yenbai/st_yenbai_chatbot && git pull origin chatbot_nodejs && docker-compose up -d --build --remove-orphans
+
+docker image prune -f
+
+sleep 10
+
+docker logs --tail 200 st_yenbai_chatbot_chatbot_nodejs_1
+

@@ -1,0 +1,7 @@
+branch_dep=develop
+folder_dep=/app/st_yenbai/web_business/
+
+cd ${folder_dep} && \
+    git checkout ${branch_dep} && \
+    git pull origin ${branch_dep} && \
+    docker-compose -f docker-compose.yml up -d --build --remove-orphans

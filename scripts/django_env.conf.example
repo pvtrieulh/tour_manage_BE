@@ -1,0 +1,66 @@
+DEBUG=False
+DJANGO_SETTINGS_MODULE=tetviet.settings.develop
+
+###### setting django-cors-headers
+ALLOWED_HOSTS=xxxxxx------localhost,127.0.0.1,api-smart-travel.rikkei.org
+CORS_ORIGIN_WHITELIST=xxxxxx------http://localhost:3000,http://127.0.0.1:3000,https://localhost:3000,https://127.0.0.1:3000,http://smart-travel.rikkei.org,https://smart-travel.rikkei.org
+CORS_ALLOW_CREDENTIALS=xxxxxx------True
+CORS_ALLOW_HEADERS=xxxxxx------my-custom-header,CLIENTAPIKEY
+
+###### setting database mysql
+MYSQL_DATABASE=xxxxxx------db_name
+MYSQL_USER=xxxxxx------root
+MYSQL_PASSWORD=xxxxxx------password
+MYSQL_HOST=xxxxxx------localhost
+MYSQL_PORT=xxxxxx------3306
+
+###### url media, static
+STATIC_URL=xxxxxx------http://localhost:8000/static/
+MEDIA_URL=xxxxxx------http://localhost:8000/media/
+
+###### setting aws
+AWS_ACCESS_KEY_ID=xxxxxx---WQQQWQWQWQWQW
+AWS_SECRET_ACCESS_KEY=xxxxxx---fsdgert56terfwe4rtttrw
+AWS_STORAGE_BUCKET_NAME=xxxxxx---domain-webapi-dev
+AWS_LOCATION=xxxxxx---static
+AWS_LOCATION_MEDIA=xxxxxx---media
+STATICFILES_STORAGE=xxxxxx---storages.backends.s3boto3.S3Boto3Storage
+DEFAULT_FILE_STORAGE=xxxxxx---base.storage_backends.MediaStorage
+
+###### setting redis
+REDIS_HOST_NAME=xxxxxx-----redis.abc.com
+REDIS_PORT=xxxxxx------6379
+
+###### setting fcm push noti
+FCM_SERVER_KEY=AAAAUfZyqGk:APA91bG8dovfwvui_LwZ62OUkkbgWjbw5ALH6byXtYY9ues2xp086DhfE2ERzmG0ewbuP3BfVVF8YwHKFTmNYacPiwCSCunncaGOCGcuZIFM3Bk96bsO0Kky5-pfgzITowkIpxWOedYf
+DELETE_INACTIVE_DEVICES=xxxxxx------False
+ONE_DEVICE_PER_USER=xxxxxx------False
+
+###### setting celery
+CELERY_BROKER_URL=xxxxxx------redis://redis:6379/0
+CELERY_WORKER_CONCURRENCY=xxxxxx------5
+C_FORCE_ROOT=xxxxxx------True
+JWT_SECRET_KEY=xxxxxx------123456789987654321
+
+###### setting email send
+EMAIL_BACKEND=xxxxxx------django.core.mail.backends.smtp.EmailBackend
+EMAIL_USE_TLS=xxxxxx------True
+EMAIL_PORT=xxxxxx------587
+EMAIL_HOST=xxxxxx------smtp.gmail.com
+EMAIL_HOST_USER=xxxxxx------accountsend@gmail.com
+EMAIL_HOST_PASSWORD=xxxxxx------gfhjkoqazxcvbnmk
+DEFAULT_FROM_EMAIL=xxxxxx------Smart travel
+
+
+#### Auth social
+CHECK_VERIFY_TOKEN_PROVIDER=xxxxxx------True
+
+#### google api
+GOOGLE_TRANSLATE_API_KEY=xxxxxx------XXXXXXXXXXXXXXXXXXXX
+
+###chatbot
+FPT_APP_TOKEN=xxxxxx------b0044a16008d45c310ea85645c4641ac
+API_KEY_WEMAP=xxxxxx------zZjAMHCwZAHTQqXIvigmZOXNiI
+
+### NEWS
+RATING_APPROVE_AUTO=xxxxxx------False

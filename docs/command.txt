@@ -1,0 +1,17 @@
+event_import_xlsx:
+	- 
+	- Syntax: python manage.py event_import_xlsx --path='path to folder'
+	- Chú ý:
+		+ Tên sheet:
+		    - Sự kiện, lễ hội
+
++ Cấu trúc folder:
+		    tên tỉnh /
+		            tên folder image(tùy ý)/
+
+		                Sự kiện - lễ hội/
+		                    1/
+		                        ...
+		                    2/
+		                        ...
+		            file xlsx

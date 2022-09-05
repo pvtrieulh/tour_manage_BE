@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  ### python django + nginx
+  api_server_field_management:
+    restart: unless-stopped
+    build:
+      context: .
+    volumes:
+      - ./src/field_management/static_cdn/:/app/code/static_cdn
+    env_file: ./scripts/django_env.conf
+    ports:
+      - "8000"
+    depends_on:
+      - db
+    # networks:
+    #   - aic_st_link
+
+  db:
+    image: mysql:8.0.21
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    ports:
+      - "3306"
+    environment:
+      MYSQL_USER: 'root'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 'field_management'
+    volumes:
+      - ../st_mysqldata:/var/lib/mysql
+    # networks:
+    #   - aic_st_link
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 3002:8080
+    # networks:
+    #   - aic_st_link
+
+  redis:
+    image: redis:6.0-rc-buster
+    restart: unless-stopped
+    ports:
+      - "6379"
+    # networks:
+    #   - aic_st_link
+
+  # celery:
+  #   restart: unless-stopped
+  #   build: .
+  #   volumes:
+  #     - ./src/field_management/:/app/code
+  #   env_file: ./scripts/django_env.conf
+  #   command: celery -A field_management worker -B -l info
+  #   depends_on:
+  #     - redis
+  #     - db
+    # networks:
+    #   - aic_st_link
+
+# networks:
+#   aic_st_link:
+#     driver: bridge
+
+networks:
+  default:
+    external:
+      name: nginx_proxy_field_management_proxy

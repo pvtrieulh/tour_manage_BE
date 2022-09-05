@@ -1,0 +1,32 @@
+.idea/
+.venv/
+__pycache__
+*.pyc
+*.pyo
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
+src/field_management/field_management/settings/local_settings.py
+src/field_management/data/tk_aic.csv
+src/field_management/scripts/gen_editor.sh
+src/field_management/scripts/gen_supereditor.sh
+src/field_management/logs/*
+mysqldata
+
+# Elastic Beanstalk Files
+.tetviet/elasticbeanstalk/*
+!.tetviet/elasticbeanstalk/*.cfg.yml
+!.tetviet/elasticbeanstalk/*.global.yml.ebextensions
+
+venv
+static_cdn/
+
+# scripts
+scripts/django_env.conf

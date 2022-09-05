@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.21
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    ports:
+      - "3306"
+    environment:
+      MYSQL_USER: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'field_management'
+    volumes:
+      - ../st_mysqldata:/var/lib/mysql
+
+  python:
+    restart: unless-stopped
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src/field_management/:/app/code
+    command: python /app/code/manage.py runserver 0:8000
+    depends_on:
+      - db
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 3002:8080
+
+  redis:
+    image: redis:6.0-rc-buster
+    restart: unless-stopped
+    ports:
+      - "6379"

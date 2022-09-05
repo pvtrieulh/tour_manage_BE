@@ -1,0 +1,8 @@
+branch_dep=nginx_proxy_st
+folder_dep=/app/st_yenbai/nginx_proxy/
+
+cd ${$folder_dep} && \
+    git pull origin ${branch_dep} && \
+    docker-compose -f docker-compose.yml up -d --build --remove-orphans 
+
+docker image prune -f

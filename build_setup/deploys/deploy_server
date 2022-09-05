@@ -1,0 +1,12 @@
+branch_dep=develop
+folder_dep=/app/st_yenbai/server_python/
+
+cd ${folder_dep} && \
+    git pull origin ${branch_dep} && \
+    docker-compose -f docker-compose.yml up -d --build --remove-orphans 
+
+docker image prune -f
+
+sleep 10
+
+docker logs --tail 200 server_st_yenbai_api_server_yenbai_1
